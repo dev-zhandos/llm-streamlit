@@ -14,15 +14,14 @@ with st.sidebar:
         "1. Тест жасалатын тақырыпты жазыңыз📄\n"
         "2. Тағы керек болса 'тағы' жазыңыз. Өзгерістер керек болса өзгертілетін деректерге жасалатын операциялар жазыңыз💬\n"
     )
-    openai_api_key = os.environ.get("OPENAI_API_KEY", None)
-    #st.text_input(
-    #    "OpenAI API кілтіңіз",
-    #    type="password",
-    #    placeholder="OpenAI API кілтіңізді мұнда қойыңыз (sk-...)",
-    #    help="API кілтіңізді https://platform.openai.com/account/api-keys сайтынан ала аласыз.",  # noqa: E501
-    #    value=os.environ.get("OPENAI_API_KEY", None)
-    #    or st.session_state.get("OPENAI_API_KEY", ""),
-    #)
+    openai_api_key = st.text_input(
+        "OpenAI API кілтіңіз",
+        type="password",
+        placeholder="OpenAI API кілтіңізді мұнда қойыңыз (sk-...)",
+        help="API кілтіңізді https://platform.openai.com/account/api-keys сайтынан ала аласыз.",  # noqa: E501
+        value=os.environ.get("OPENAI_API_KEY", None)
+        or st.session_state.get("OPENAI_API_KEY", ""),
+    )
 
     st.session_state["OPENAI_API_KEY"] = openai_api_key
 
